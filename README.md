@@ -1,35 +1,23 @@
-<p align="center">
-  <img width="350" alt="Mod Mmm Logo" src="https://i.imgur.com/8TSD5ec.png"/>
-</p>
+fork of [dcpedit's m122ion control](https://github.com/dcpedit/mission-control). This project would not have been possible whatsoever without his work mapping out the radii, key spacings and other critical measurements of the original assembly.
 
-# Mission Control PCB for the IBM Model M122
+# MX retrofit PCB for IBM Model M 122-key converged keyboards types II, III 
 
-This project is designed to replace all internal compoents of an Model M122 keyboard, and is based off my previous [Mod Mmm Project](https://github.com/dcpedit/mod-mmm).  Only the curved steel backplate is needed for the PCB to be mounted on.
-
-![m122 9009](https://i.imgur.com/1ZAMhn9.jpeg)
-![m122 switches](https://i.imgur.com/W7ycrXl.jpeg)
-
-Image gallery: https://imgur.com/a/wuXMWVg
+This PCB and it's associated components replace the original Buckling Spring type assemblies inside the M122 keyboard. The original curved steel plate and the case are kept and used, any
 
 ## Features
 
+* 
 * Hotswap sockets for MX switches
-* Multiple layout support, including ISO, split spacebar, and 4x5 macropad for numpad. [KLE link](http://www.keyboard-layout-editor.com/#/gists/d71adbbb0de71b98bfe3e79a4a607b5c)
+* Multiple layout support, including ISO, split spacebar, and 4x5 macropad for numpad
 * PCB mount stabilizers
 * Under-switch LED for caps lock and num lock
-* Piezo buzzer
-* Solenoid
-* LCD display
-* USB-C support
-* Bluetooth support (via PillBug)
+* Piezo buzzer and/or Solenoid key feedback
+* USB-C support (internal connection and strain relief, case passthrough)
 * QMK/VIA firmware
-* ZMK firmware (for BT PillBug)
 
-<img width="350" alt="Layout" src="https://i.imgur.com/4Qnehgr.png">
+## The Build Stack
 
-## The Build "Stack"
-
-The following is a table of measurements of everything that's stacked on top of the steel backplate.  The key spacing was taken from hires scans I made of the Model M's wiring membrane.  I recalculated the spacing for each decrease in radius except for the foam where I reused the numbers from the switch plate.  I was lazy and figured foam can stretch anyways.
+The following is a table of measurements of everything that's stacked on top of the steel backplate. 
 
 | Part            | Thickness (mm) | Radius (mm) | Radius Start | 1u vertical spacing (mm) |
 |-----------------|----------------|-------------|--------------|--------------------------|
@@ -43,7 +31,7 @@ The following is a table of measurements of everything that's stacked on top of 
 
 | Part                        | Count | Notes |
 |-----------------------------|-------|-------|
-| Mission Control PCB         | 1     | 1mm FR4 thickness
+| MX122 PCB         | 1     | 1mm FR4 thickness
 | Blackpill (STM32F411)       | 1     |
 | M2.5x3mm Wafer Screw        | 138   | [Link](https://www.aliexpress.us/item/2255800885711092.html?spm=a2g0o.order_list.order_list_main.22.1875180223MOsy&gatewayAdapt=glo2usa&_randl_shipto=US)
 | M2.5x4mm Hex Standoff       | 69    | [Link](https://www.aliexpress.us/item/2251832790997097.html?spm=a2g0o.order_list.order_list_main.23.1875180223MOsy&gatewayAdapt=glo2usa&_randl_shipto=US)
@@ -70,18 +58,15 @@ The following is a table of measurements of everything that's stacked on top of 
 | 8 pin ribbon cable          | 1     | For optional display
 | USB-C panel mount           | 1     | [Link](https://a.aliexpress.com/_mLVMrx6)
 
-For the Mill-Max 315 series sockets, I found it more cost efficient to just buy a really long socket and cut the sizes I need with flush cutters.  [Here's an example of a 1x64 socket.](https://www.mouser.com/ProductDetail/Mill-Max/315-93-164-41-003000?qs=WZRMhwwaLl%252BIMh92Iwf2Uw%3D%3D&countryCode=US&).  Make sure to file down the rough edge after cutting.
+## PCB Build Guide
 
-## PCB Build Guild
 
-<img src="https://i.imgur.com/i8CSYAg.jpeg" width="350">
-
-To complete this build, you will need to get the main PCB manufactured with an **FR4 thickness of 1mm**.  I personally like using [JLCPCB](https://jlcpcb.com/), and I've included the gerber zip in the `pcb/production` folder.  (Note: you will need to order a minimum of 5 boards).
+To complete this build, you will need to get the main PCB manufactured with an **FR4 thickness of 1mm** and **no assembly done by the fabricator**
 
 ### 1) Disassembly
 The first step is to disassemble your Model M and clean it if neccessary.  There are lots of tutorials online on how to do this, and make sure you have a 7/32 inch (5.5mm) socket for the case screws.
 
-Remove the plastic rivets on the back of the steel plate with a pair of flush cutters.  Once this is done, all the components can be removed leaving just the steel plate.
+Remove the plastic rivets on the back of the steel plate with a pair of flush cutters.  Once all are remove, the key assembly can be removed, leaving just the steel plate.
 
 ### 2) Shape PCB
 
@@ -106,15 +91,7 @@ It's probably best to flash the firmware onto the Blackpill first using the `bin
 * Press and release NRST (reset) button
 * Release BOOT0 button
 
-Solder the Mill-Max 315 sockets onto the daughterboard.  Then place a piece of masking tape over the pin holes, and insert each pin though the tape and into its hole with tweezers.  Then set the Blackpill into place with the components facing up and the USB port facing the top of the daughterboard.  Solder the pins into place, and then carefully and slowly remove the Blackpill.  If you pull too fast and hard, one edge will suddenly pop loose, bending the pins on the opposite side.  Remove the masking tape, and push the Blackpill back into place.
-
-Lazy-man's short cut: skip the masking tape.  But note that using too much solder will cause it to flow down the pin and into the socket.  If this happens, the keyboard will still work, but you won't be able to remove the Blackpill without desoldering.
-
-## Choose build option
-
-At this point in the build, you will need to choose between ONE of the following 2 options.
-
-### Option #1: Solenoid, buzzer, and status LEDs
+### Solenoid, buzzer, and status LEDs
 
 <img src="https://i.imgur.com/jOQl0lg.jpeg" width="450"/>
 
@@ -133,26 +110,6 @@ Solder this into the BZ1 position.  Orientation does not matter.
 These LEDs go under the caps lock and scroll lock switches.  Depending on your switch, you may have to solder these in AFTER placing the switch into the socket.  You can tell by looking under the switch to see if there's a hole big enough for the LED to fit through.  If there are only 2 small holes for the LED pins, then the switch needs to go in first.  The short pin of the LED goes in the square pad.  As for the accompanying 10kΩ resistors (R1 and R2), orientation does not matter.
 
 I use a higher resistance here for the white LEDs because they tend to be too bright for me personally.  Feel free to lower the resistance if you want them brighter, or if you choose a different color.
-
-### Option #2: LCD display
-
-<img src="https://i.imgur.com/pWeyHcX.jpeg" width="350">
-
-#### a) Display headers
-
-Mount headers for on the PCB facing down (PCB position J1) and right angled headers on the display facing towards the right
-
-#### b) Cut display window
-
-Turn on your display, and measure the physical height and width of the display area.  This will be the size of your case "window".  Use masking tape to mark the edges of the window on the top of your case and cut the hole out.
-
-I believe the best tool for this job is with a CNC router.  Since I didn't have access to one, I first used a dremel with a cutting disk to cut the hole out.  Then I smoothed the edges with a file, and then with fine grit sand sand paper wrapped around a flat piece of plastic.  I found that adding a chamfered edge makes it look more "finished".
-
-#### c) Mounting display
-
-I found that the easiest thing to do here is to first connect the display to the PCB with the ribbon cable and power it up.  Center the displayed image within the window, and while holding it firmly in place, place hot glue in each corner of the display's PCB, allowing some to flow through the mounting holes.
-
-<img src="https://i.imgur.com/wHgdfui.jpeg" width="350">
 
 ## Continue with main build
 
@@ -200,28 +157,6 @@ With the PCB now centered, remove the top of the case and begin screwing in all 
 
 Binaries are located in the `firmware` directory.
 
-Source code is located in the `missioncontrol` branch of my QMK fork:
+Source code is located in the `missioncontrol` branch of dcpedit's QMK fork:
 
 https://github.com/dcpedit/qmk_firmware/tree/mission-control/keyboards/dcpedit/missioncontrol
-
-The LCD build requires it's own separate firmware because it uses the solenoid/buzz/LED pins.
-
-### Change graphic
-
-Copy your 240x320 image (320x240 image rotated counter-clockwise 90 degrees) into the following QMK directory:
-
-```
-keyboards/dcpedit/missioncontrol/lcd/image/background.png
-```
-
-Then run the following command from that directory
-
-```
-qmk painter-convert-graphics -f rgb565 -i background.png -o ./
-```
-
-That will generate a new `*.c` and `*.h` file.  You can now compile the firmware:
-
-```
-make dcpedit/missioncontrol/lcd:via
-```
