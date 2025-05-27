@@ -6,7 +6,7 @@ This PCB and it's associated components replace the original Buckling Spring typ
 
 ## Features
 
-* 
+* Blackpill/Bluepill controller
 * Hotswap sockets for MX switches
 * Multiple layout support, including ISO, split spacebar, and 4x5 macropad for numpad
 * PCB mount stabilizers
