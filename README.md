@@ -1,6 +1,6 @@
 fork of [dcpedit's m122ion control](https://github.com/dcpedit/mission-control). This project would not have been possible whatsoever without his work mapping out the radii, key spacings and other critical measurements of the original assembly.
 
-# MX retrofit PCB for IBM Model M 122-key converged keyboards types II, III 
+# MX retrofit PCB for IBM Model M 122-key converged keyboards
 
 This PCB and it's associated components replace the original Buckling Spring type assemblies inside the M122 keyboard. The original curved steel plate and the case are kept and used, any
 
@@ -53,7 +53,6 @@ The following is a table of measurements of everything that's stacked on top of 
 | Switch plate (5 piece set)  | 1     | Optional 1.5mm acrylic
 | Case foam (under PCB)       | 1     | Optional 2mm EVA
 | Plate Foam                  | 1     | Optional 3.5mm EVA foam (or 2mm + [1.5mm](https://www.aliexpress.us/item/3256804208838525.html?spm=a2g0o.order_list.order_list_main.5.21ef1802FA7EIC&gatewayAdapt=glo2usa&_randl_shipto=US))
-| 2.2" ILI9341 display        | 1     | Optional display, [link](https://a.co/d/10fYStD)
 | 8 pin headers (2.54mm pitch)| 2     | For optional display
 | 8 pin ribbon cable          | 1     | For optional display
 | USB-C panel mount           | 1     | [Link](https://a.aliexpress.com/_mLVMrx6)
@@ -61,16 +60,16 @@ The following is a table of measurements of everything that's stacked on top of 
 ## PCB Build Guide
 
 
-To complete this build, you will need to get the main PCB manufactured with an **FR4 thickness of 1mm** and **no assembly done by the fabricator**
+To complete this build, you will need to order the main PCB manufactured with an **FR4 thickness of 1mm** and **no assembly done by your PCB fab**
 
 ### 1) Disassembly
 The first step is to disassemble your Model M and clean it if neccessary.  There are lots of tutorials online on how to do this, and make sure you have a 7/32 inch (5.5mm) socket for the case screws.
 
-Remove the plastic rivets on the back of the steel plate with a pair of flush cutters.  Once all are remove, the key assembly can be removed, leaving just the steel plate.
+Remove the plastic rivets on the back of the steel plate with a pair of flush cutters.  Once all are removed, the key assembly can be removed, leaving just the steel plate.
 
 ### 2) Shape PCB
 
-Using the hex standoffs and a few screws, mount the PCB onto the steel backplate for 24hrs.  You only need enough screws & standoffs for the PCB to hold its shape.  After you remove the PCB, you want there to be a slight curve to the FR4 before soldering on the components.  This way, the componenets and solder joints experience less stress when the PCB is bent into its final shape.
+Using the hex standoffs and a few screws, mount the PCB onto the steel backplate for 24hrs.  You only need enough screws & standoffs for the PCB to hold its shape.  After you remove the PCB, you want there to be a slight curve to the FR4 before soldering on the components.  Were you to curve the board with components assembled, there is a high risk of joints cracking or lifting
 
 ### 3) BAV70 Diodes
 
