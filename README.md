@@ -1,6 +1,8 @@
-fork of [dcpedit's m122ion control](https://github.com/dcpedit/mission-control). This project would not have been possible whatsoever without his work mapping out the radii, key spacings and other critical measurements of the original assembly.
-
 # MX retrofit PCB for IBM Model M 122-key converged keyboards
+
+![Screenshot 2025-05-31 230649](https://github.com/user-attachments/assets/a4a304ac-f23d-44c0-9f37-39f708e7aa89)
+
+fork of [dcpedit's m122ion control](https://github.com/dcpedit/mission-control). This project would not have happened without his work mapping out the critical measurements of the original assembly.
 
 This PCB and it's associated components replace the original Buckling Spring type assemblies inside the M122 keyboard. The original curved steel plate and the case are kept and used, any
 
